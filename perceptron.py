@@ -59,5 +59,18 @@ def softMax(l):
     return result
 
 
-L = [1,2,3,4,5]
-softMax(L)
+#L = [1,2,3,4,5]
+#softMax(L)
+
+def cross_entropy(y,p):
+    Y = np.float_(Y)
+    P = np.float_(P)
+    result = -np.sum(Y * np.log(P) + (1 - Y) * np.log(1 - P))
+    return result
+
+
+Y=[1,0,1,1]
+P=[0.4,0.6,0.1,0.5]
+cross_entropy(Y,P)
+# The correct answer is
+# 4.8283137373
