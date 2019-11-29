@@ -1,4 +1,5 @@
 import numpy as np
+
 # Setting the random seed, feel free to change it and see different solutions.
 np.random.seed(42)
 
@@ -47,4 +48,16 @@ def trainPerceptronAlgorithm(X, y, learn_rate = 0.01, num_epochs = 25):
     return boundary_lines
 
 
-perceptronStep()
+def softMax(l):
+    size = len(l)
+    result = []
+    sum=0
+    for i in l:
+        sum = sum + np.exp(i)
+    for i in l:
+        result.append(np.exp(i)/sum)
+    return result
+
+
+L = [1,2,3,4,5]
+softMax(L)
