@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 # # Classifying Fashion-MNIST
-# 
+#
 # Now it's your turn to build and train a neural network. You'll be using the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist), a drop-in replacement for the MNIST dataset. MNIST is actually quite trivial with neural networks where you can easily achieve better than 97% accuracy. Fashion-MNIST is a set of 28x28 greyscale images of clothes. It's more complex than MNIST, so it's a better representation of the actual performance of your network, and a better representation of datasets you'll use in the real world.
-# 
+#
 # <img src='assets/fashion-mnist-sprite.png' width=500px>
-# 
+#
 # In this notebook, you'll build your own neural network. For the most part, you could just copy and paste the code from Part 3, but you wouldn't be learning. It's important for you to write the code yourself and get it to work. Feel free to consult the previous notebooks though as you work through this.
-# 
+#
 # First off, let's load the dataset through torchvision.
 
 # In[ ]:
@@ -40,7 +41,7 @@ helper.imshow(image[0,:]);
 
 
 # ## Building the network
-# 
+#
 # Here you should define your network. As with MNIST, each image is 28x28 which is a total of 784 pixels, and there are 10 classes. You should include at least one hidden layer. We suggest you use ReLU activations for the layers and to return the logits or log-softmax from the forward pass. It's up to you how many layers you add and the size of those layers.
 
 # In[ ]:
@@ -58,30 +59,30 @@ class Classifier(nn.Module):
         self.fc2 = nn.Linear(256, 128)
         self.fc3 = nn.Linear(128, 64)
         self.fc4 = nn.Linear(64, 10)
-        
+
     def forward(self, x):
         # make sure input tensor is flattened
         x = x.view(x.shape[0], -1)
-        
+
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         x = F.log_softmax(self.fc4(x), dim=1)
-        
+
         return x
 
 
 # # Train the network
-# 
+#
 # Now you should create your network and train it. First you'll want to define [the criterion](http://pytorch.org/docs/master/nn.html#loss-functions) ( something like `nn.CrossEntropyLoss`) and [the optimizer](http://pytorch.org/docs/master/optim.html) (typically `optim.SGD` or `optim.Adam`).
-# 
+#
 # Then write the training code. Remember the training pass is a fairly straightforward process:
-# 
-# * Make a forward pass through the network to get the logits 
+#
+# * Make a forward pass through the network to get the logits
 # * Use the logits to calculate the loss
 # * Perform a backward pass through the network with `loss.backward()` to calculate the gradients
 # * Take a step with the optimizer to update the weights
-# 
+#
 # By adjusting the hyperparameters (hidden units, learning rate, etc), you should be able to get the training loss below 0.4.
 
 # In[ ]:
@@ -106,11 +107,11 @@ for e in range(epochs):
     for images, labels in trainloader:
         log_ps = model(images)
         loss = criterion(log_ps, labels)
-        
+
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        
+
         running_loss += loss.item()
     else:
         print(f"Training loss: {running_loss/len(trainloader)}")
@@ -146,7 +147,3 @@ helper.view_classify(img.resize_(1, 28, 28), ps, version='Fashion')
 
 
 # In[ ]:
-
-
-
-

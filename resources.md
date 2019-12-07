@@ -10,6 +10,7 @@
 
    c) [Robert A. Beezer, A First Course in Linear Algebra, available free online](http://linear.ups.edu/)
 
+
    d) [Chapter 4: Vectors, Matrices, and Linear Algebra (Stanford)](https://web.stanford.edu/class/nbio228-01/handouts/Ch4_Linear_Algebra.pdf)
 
    e) [Vectors](https://www.mathsisfun.com/algebra/vectors.html), [Dot Product](https://www.mathsisfun.com/algebra/vectors-dot-product.html), [Cross Product](https://www.mathsisfun.com/algebra/vectors-cross-product.html),[Unit Vector](https://www.mathsisfun.com/algebra/vector-unit.html), [Rational Numbers](https://www.mathsisfun.com/rational-numbers.html)
